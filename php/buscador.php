@@ -13,6 +13,13 @@
     $precion_minimo = intval($precio[0]);
     $precion_maximo = intval($precio[1]);
 
+    function valorPrecio($arg_n){
+      $arreglar = array("$",",");
+      $valor = str_replace($arreglar,"",$arg_n['Precio']);
+      $valor = intval($valor);
+      return $valor;
+    }
+
     function addHTML($arg_n){
       $cadenaHTML = '<div class="itemMostrado card">
         <img src="img/home.jpg">
@@ -30,12 +37,6 @@
         return $cadenaHTML;
     }
 
-    function valorPrecio($arg_n){
-      $arreglar = array("$",",");
-      $valor = str_replace($arreglar,"",$arg_n['Precio']);
-      $valor = intval($valor);
-      return $valor;
-    }
 
     if($ciudad != "null" && $tipo != "null"){
       foreach ($data as $key => $value) {
